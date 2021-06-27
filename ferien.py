@@ -116,6 +116,9 @@ def create_df_from_crawled_data(years = list(range(2014, 2024)),
                 df.loc[mask,'index'] = 1
     return df           
 
-# let's collect all the historical data:
+# Collect all available historical data:
 ferien_data_2014_2023 = create_df_from_crawled_data()
+
+# Let's reshape data using more friendly format:
+ferien_data_2014_2023 = ferien_data_2014_2023.pivot(index=['bundesland','date'], columns='ferien_type', values='index')
 ferien_data_2014_2023.head()
