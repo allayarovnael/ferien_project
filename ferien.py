@@ -92,10 +92,10 @@ def parse_table_data(years=list(range(2014, 2024))):
                 ferien_data[year][bundesland][ferientype] = parse_time_interval(row[index+1], year)
     return ferien_data
 
-def create_df_from_crawled_data(years = list(range(2014, 2024)), 
-                                bl_names_list = list(BUNDESLAENDER.keys()), 
-                                ferien_names_list = list(FERIEN_NAMES.keys())):
+def create_df_from_crawled_data(years = list(range(2014, 2024))):
     
+    bl_names_list = list(BUNDESLAENDER.keys())
+    ferien_names_list = list(FERIEN_NAMES.keys())
     ferien_data = parse_table_data(years=years)
     timeline =  pd.date_range(date(years[0],1,1), date(years[-1],12,31))
     
